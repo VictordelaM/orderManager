@@ -1,6 +1,32 @@
 import mongoose, { Schema } from "mongoose";
 import { type } from "os";
 
+const item = new Schema ({
+
+    //Pizza Burger etc
+    type:{
+        type: String,
+        required: true
+    },
+    itemName: {
+        type: String,
+        required: true
+    },
+    quantity: {
+        type: Number,
+        required: true
+    },
+    itemID: {
+        type: String,
+        required: true
+    },
+    price: {
+        type: Number,
+        required: true
+    }
+
+
+})
 
 const orderSchema = new Schema ({
     customer:{
@@ -45,7 +71,8 @@ const orderSchema = new Schema ({
         orderID:{
             type: String,
             // required:true,
-        }
+        },
+        items: [item]
     }}
 )
 
